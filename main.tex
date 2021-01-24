@@ -1,0 +1,29 @@
+\documentclass{report}
+\usepackage[utf8]{inputenc}
+
+\usepackage{mystyle}
+
+% fancy header
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{\bfseries\nouppercase{\leftmark}}
+\rhead{\slshape\nouppercase{\rightmark}}
+
+
+\title{math notes}
+\author{Joseph Sullivan}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\newpage
+
+\part{Analysis}
+\import{parts/}{analysis}
+
+\part{Abstract Algebra}
+\import{parts/}{algebra}
+
+\end{document}

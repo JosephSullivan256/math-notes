@@ -1,0 +1,158 @@
+\ProvidesPackage{mystyle}
+
+%%%% %%%% %%%% %%%% %%%% %%%% %%%%
+%%%% %%%% %%%% MISC %%%% %%%% %%%%
+
+
+% necessary for doing more imports
+\usepackage{standalone}
+\usepackage{import}
+
+% smaller margins
+\usepackage[margin=1in]{geometry}
+
+% makes links clickable
+\usepackage{hyperref}
+
+% test that mystyle loaded correctly.
+\newcommand{\mystyleloaded}{My style has loaded correctly.}
+
+% lorem ipsum for generating text for testing purposes
+\usepackage{lipsum}
+
+% boxed environment magic
+\setlength{\fboxsep}{6pt}
+\newsavebox{\mybox}
+\newenvironment{boxedenv}
+    {
+        \begin{lrbox}{\mybox}
+        \begin{minipage}{0.98\textwidth}
+    }
+    {
+        \end{minipage}\end{lrbox}\begin{center}\framebox[\textwidth]{\usebox{\mybox}}\end{center}
+    }
+
+
+%%%% %%%% %%%% %%%% %%%% %%%% %%%%
+%%%% %%%% %%%% MATH %%%% %%%% %%%%
+
+
+% barebones math packages
+\usepackage{amsmath, amsfonts}
+% even more math stuff (e.g. floor/ceil)
+\usepackage{mathtools}
+
+% type set accents, also used for certain math symbols
+% must be included AFTER AMSMATH
+\usepackage{accents}
+
+%%%% THEOREMS %%%%
+\usepackage{amsthm}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\newtheorem{corollary}{Corollary}[chapter]
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{example}{Example}[chapter]
+\newtheorem{problem}{Problem}[chapter]
+\newtheorem{question}{Question}[chapter]
+\newtheorem{exercise}{Exercise}[chapter]
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[chapter]
+
+
+%%%% COMMON %%%%
+
+% common blackboard letters
+\newcommand{\bH}{\mathbb{H}}
+\newcommand{\bF}{\mathbb{F}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+
+% turn on display style so that commands like `\lim` and `\sum` are displayed full size in inline math mode
+\newcommand{\ds}{\displaystyle}
+
+% redefine implies to short
+\renewcommand{\implies}{\Rightarrow}
+
+
+%%%% LOGIC %%%%
+
+\newcommand{\proves}{\vdash}
+\renewcommand{\models}{\vDash}
+
+
+%%%% ANALYSIS %%%%
+
+% derivatives, partial derivatives, differentials
+\usepackage{physics}
+
+% shorthand for good letters
+\newcommand{\eps}{\varepsilon}
+
+% sequences
+\newcommand{\seq}[2]{\{#2\}_{#1=1}^\infty}
+
+% upper and lower riemann integrals
+\def\upint{\mathchoice%
+    {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+  \int}
+\def\lowint{\mkern3mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu\int}
+
+% diameter
+\DeclareMathOperator{\diam}{diam}
+
+% override Real and Imaginary to make them readable
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+
+% Principle Log and Arg
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\Arg}{Arg}
+
+% floor and ceil
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+
+%%%% TOPOLOGY %%%%
+
+% interior
+%\newcommand{\interior}[1]{\accentset{\circ}{#1}}
+\DeclareMathOperator{\interior}{int}
+
+% closure
+\newcommand{\cl}[1]{\overline{#1}}
+%\DeclareMathOperator{\cl}{cl}
+
+
+%%%% Linear Algebra %%%%
+
+\newcommand{\rref}[1]{\operatorname{rref}(#1)}
+%\newcommand{\rank}[1]{\operatorname{rank}(#1)}
+\newcommand{\vspan}[1]{\operatorname{span}(#1)}
+
+\newcommand{\innerprod}[2]{\langle #1, #2 \rangle}
+
+
+%%%% Algebra %%%%
+
+% package for commutative diagrams (via tikz)
+\usepackage{tikz-cd}
+
+% homomorphism set/functor
+\DeclareMathOperator{\Hom}{Hom}
+
+\newcommand{\<}{\left\langle}
+% overwrite \>, which is normally used as an alias to \medskip
+\renewcommand{\>}{\right\rangle}
