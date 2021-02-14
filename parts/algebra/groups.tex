@@ -99,21 +99,21 @@ Before we jumping in, however, I will begin this chapter by cramming useful defi
     for all $uN,vN\in G/N$. When context is clear, we denote $\overline{u} = uN$.
 \end{definition}
 
-\begin{definition}
+\begin{definition2}
     If $\phi: G\to H$ is a group isomorphism and $G=H$, then $\phi: G\to G$ is called an \term{automorphism}. If for some $g\in G$, it is the case that
     \[\phi(h)=ghg^{-1}\]
     for all $h\in G$, then $\phi$ is called an \term{inner automorphism}.
 
     The set of all automorphisms forms a group under composition, called the \term{automorphism group} $\operatorname{Aut}(G)$. Likewise, the set of inner automorphisms forms a group called the \term{inner automorphism group} $\operatorname{Inn}(G)$.
-\end{definition}
+\end{definition2}
 
-\begin{definition}
+\begin{definition1}
     The \term{centralizer} of $x\in G$ is the subgroup
     \[C_G(x) = \{g\in G: gxg^{-1} = x\}.\]
     Equivalently, $C_G(a)$ is the stabilizer of $x\in G$ under the conjugation action. Then, for $A\subseteq G$,
     \[C_G(A) = \bigcap_{a\in A} C_G(a) = \{g\in G: gag^{-1} = a, \quad \forall a\in A\}.\]
     In other words, $C_G(A)$ is the subgroup of all $g\in G$ that commute with every element of $A$.
-\end{definition}
+\end{definition1}
 
 \begin{definition}
     The \term{center} of $G$ is defined as $Z(G)=C_G(G)$, i.e. the subgroup of all elements that commute with everything in $G$.

@@ -46,11 +46,23 @@
     backgroundcolor=boxgray1, linecolor=boxgray2
 ]{graybox}
 
-\definecolor{boxgreen1}{cmyk}{0.25, 0,    0.40, 0.05}
-\definecolor{boxgreen2}{cmyk}{0.50, 0.05, 0.80, 0.25}
-\newmdenv[    
+\definecolor{boxgreen1}{RGB}{226, 240, 219}
+\definecolor{boxgreen2}{RGB}{ 88, 143,  61}
+\newmdenv[
     backgroundcolor=boxgreen1, linecolor=boxgreen2
 ]{greenbox}
+
+\definecolor{boxblue1}{RGB}{219, 230, 240}
+\definecolor{boxblue2}{RGB}{ 61, 102, 143}
+\newmdenv[
+    backgroundcolor=boxblue1, linecolor=boxblue2
+]{bluebox}
+
+\definecolor{boxred1}{RGB}{240, 226, 219}
+\definecolor{boxred2}{RGB}{143, 88,  61}
+\newmdenv[
+    backgroundcolor=boxred1, linecolor=boxred2
+]{redbox}
 
 \newmdenv[
     nobreak=true,%
@@ -103,6 +115,8 @@
 %%%% ENVIRONMENTS %%%%
 
 \newenvironment{definition}{\begin{greenbox}}{\end{greenbox}}
+\newenvironment{definition1}{\begin{redbox}}{\end{redbox}}
+\newenvironment{definition2}{\begin{bluebox}}{\end{bluebox}}
 
 
 %%%% COMMON %%%%
