@@ -11,6 +11,13 @@
 % smaller margins
 \usepackage[margin=1in]{geometry}
 
+% makes interacting with text in compiled pdf work good--otherwise you can't copy correctly
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+
+% allow colors
+\usepackage{xcolor}
+
 % makes links clickable
 \usepackage{hyperref}
 
@@ -20,17 +27,45 @@
 % lorem ipsum for generating text for testing purposes
 \usepackage{lipsum}
 
-% boxed environment magic
-\setlength{\fboxsep}{6pt}
-\newsavebox{\mybox}
-\newenvironment{boxedenv}
-    {
-        \begin{lrbox}{\mybox}
-        \begin{minipage}{0.98\textwidth}
-    }
-    {
-        \end{minipage}\end{lrbox}\begin{center}\framebox[\textwidth]{\usebox{\mybox}}\end{center}
-    }
+
+%%%% BOXES %%%%
+
+\usepackage{mdframed}
+
+\mdfsetup{%
+    topline=false,bottomline=false,leftline=true,rightline=false,%
+    nobreak=true,%
+    leftmargin=3pt,%
+    innerleftmargin=6pt,innerrightmargin=6pt, innertopmargin=6pt, innerbottommargin=6pt,%
+    linecolor=black,linewidth=2pt,%
+}
+
+\definecolor{boxgray1}{gray}{0.95}
+\definecolor{boxgray2}{gray}{0.6}
+\newmdenv[    
+    backgroundcolor=boxgray1, linecolor=boxgray2
+]{graybox}
+
+\definecolor{boxgreen1}{cmyk}{0.25, 0,    0.40, 0.05}
+\definecolor{boxgreen2}{cmyk}{0.50, 0.05, 0.80, 0.25}
+\newmdenv[    
+    backgroundcolor=boxgreen1, linecolor=boxgreen2
+]{greenbox}
+
+\newmdenv[
+    nobreak=true,%
+    innerleftmargin=6pt,innerrightmargin=6pt, innertopmargin=6pt, innerbottommargin=6pt,%
+    linecolor=black%
+]{basicbox}
+
+\newenvironment{boxedenv}{\begin{basicbox}}{\end{basicbox}}
+
+
+% bold term and add to index
+%\usepackage{imakeidx}
+%\makeindex
+
+\newcommand{\term}[1]{\textbf{#1}}
 
 
 %%%% %%%% %%%% %%%% %%%% %%%% %%%%
@@ -55,7 +90,7 @@
 \newtheorem{corollary}{Corollary}[chapter]
 
 \theoremstyle{definition}
-\newtheorem{definition}{Definition}[chapter]
+% \newtheorem{definition}{Definition}[chapter]
 \newtheorem{example}{Example}[chapter]
 \newtheorem{problem}{Problem}[chapter]
 \newtheorem{question}{Question}[chapter]
@@ -63,6 +98,11 @@
 
 \theoremstyle{remark}
 \newtheorem{remark}{Remark}[chapter]
+
+
+%%%% ENVIRONMENTS %%%%
+
+\newenvironment{definition}{\begin{greenbox}}{\end{greenbox}}
 
 
 %%%% COMMON %%%%
